@@ -1,8 +1,8 @@
 export default async function Page({ params }) {
   const { slug } = await params;
 
-  const res = await fetch(`https://example.com/${slug}`, {
-    next: { revalidate: 3600 }
+  const res = await fetch(`https://example.com`, {
+    next: { tags: [slug] }
   });
   await res.text();
 
