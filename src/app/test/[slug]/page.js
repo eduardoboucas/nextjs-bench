@@ -1,9 +1,10 @@
+export const revalidate = 3600;
+export const dynamicParams = true;
+
 export default async function Page({ params }) {
   const { slug } = await params;
 
-  const res = await fetch(`https://example.com`, {
-    next: { tags: [slug] }
-  });
+  const res = await fetch(`https://example.com/${slug}`);
   await res.text();
 
   return (
