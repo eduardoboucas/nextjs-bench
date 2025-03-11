@@ -2,13 +2,17 @@ export const revalidate = 3600;
 export const dynamicParams = true;
 export const generateStaticParams = async () => [];
 
-export default async function Page({ params }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
 
   const res = await fetch(`https://example.com/${slug}`, {
     next: {
-      revalidate: 3600
-    }
+      revalidate: 3600,
+    },
   });
   await res.text();
 
