@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse, MiddlewareConfig } from "next/server";
+import { NextResponse, MiddlewareConfig } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function middleware() {
   console.log("running middleware");
 
   const responseStub = NextResponse.next();

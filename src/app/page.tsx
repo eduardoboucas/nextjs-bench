@@ -36,7 +36,7 @@ export default function Home() {
 
   useEffect(() => {
     onInputChange();
-  }, []);
+  }, [onInputChange]);
 
   return (
     <form ref={formRef} onSubmit={onInputChange}>
